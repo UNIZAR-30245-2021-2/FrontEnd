@@ -1,0 +1,98 @@
+.logoSuperior {
+  width: 12%;
+  margin-left: 40%;
+  margin-top: 2%;
+}
+/* Bordered form */
+
+
+.log{
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle,white 35%,mediumturquoise);
+  font-family: Roboto, serif;
+}
+.user{
+  margin-left: 40%;
+  margin-top: 19%;
+  font-size: 130%;
+  color: black;
+
+}
+.passw{
+  margin-left: 40%;
+  margin-top: 100%;
+  font-size: 130%;
+  color: black;
+}
+/* Full-width inputs */
+input[type=text]{
+  padding: 0.75% 1.2%;
+  margin-top: 1%;
+  margin-left: 40%;
+  margin-right: 100%;
+  margin-bottom: 2%;
+  display: block;
+  border: 2px solid black;
+  box-sizing: border-box;
+}
+input[type=password]{
+  padding: 0.75% 1.2%;
+  margin-top: 1%;
+  margin-left: 40%;
+  margin-right: 100%;
+  display: block;
+  border: 2px solid black;
+  box-sizing: border-box;
+}
+  /* Set a style for all buttons */
+button {
+  background-color: mediumturquoise;
+  color: white;
+  padding: 1% 3.9%;
+  margin-top: 3%;
+  margin-left: 40%;
+  margin-right: 28%;
+  border: none;
+  cursor: pointer;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.regbtn {
+  width: auto;
+  padding: 0.75% 1.2%;
+  background-color: dodgerblue;
+  margin-left:43%;
+  margin-top: 2%;
+}
+
+
+
+/* Add padding to containers */
+.container {
+  padding: 2%;
+  color:aliceblue;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+
+
+.datosMal{
+  position: absolute;
+  bottom: 29%;
+  margin-left: 39.4%;
+  color: red;
+}
+
+.error{
+  color:red;
+}

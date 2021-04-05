@@ -1,0 +1,81 @@
+.vista-asig{
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: lightcyan;
+  font-family: Roboto, serif;
+}
+
+.menu {
+  width: auto;
+  padding: 0.75% 1%;
+  background-color: white;
+  margin-left: 3%;
+  margin-top: 2%;
+  color: black;
+  cursor: pointer;
+}
+.menu2 {
+  width: auto;
+  padding: 0.75% 1%;
+  background-color: white;
+  margin-left: 1%;
+  margin-top: 2%;
+  color: black;
+  cursor: pointer;
+}
+
+.menu3{
+  width: auto;
+  padding: 0.75% 1%;
+  background-color: mediumturquoise;
+  margin-left: 1%;
+  margin-top: 2%;
+  color: white;
+  cursor: pointer;
+}
+
+.perfil{
+  width: auto;
+  padding: 0.75% 1%;
+  background-color: mediumturquoise;
+  margin-left:85%;
+  margin-top: 1%;
+  color: white;
+  cursor:pointer;
+}
+
+.tem{
+  margin-left: 10%;
+}
+
+.category{
+  margin-left: 2%;
+}
+
+.date{
+  margin-left: 25%;
+}
+
+.answer{
+  margin-left: 25%;
+}
+
+.new{
+  margin-left: 75%;
+  background-color: mediumturquoise;
+  cursor: pointer;
+}
+
+.rectangulo{
+  width: 600px;
+  height: 150px;
+  border: 3px solid black;
+  margin-left: 30%;
+  background-color: mediumturquoise;
+}
+
+

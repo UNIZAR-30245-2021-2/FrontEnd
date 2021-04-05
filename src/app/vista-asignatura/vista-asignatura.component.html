@@ -1,0 +1,40 @@
+<div *ngIf="mostrar" class="vista-asig">
+  <button type="button" class="menu" (click)="Servicio.nextMessageCentral(true);Servicio.nextMessageVistaLista(false);
+Servicio.nextMessageVistaAsig(false)">Inicio</button>
+  <button type="button" class="menu2" (click)="Servicio.nextMessageVistaLista(true);
+Servicio.nextMessageVistaAsig(false)">Tercero</button>
+  <button type="button" class="menu3">Arquitectura Software</button>
+  <button type="submit" class="perfil">Mi cuenta</button>
+  <br>
+<br>
+
+  <div class="rectangulo">
+    <br>
+    <form>
+      <label class="tem"><b>Tema</b></label><input type="text" size="40" required [(ngModel)]="tema">
+      <label class="category"><b>Categoría</b></label>
+      <select  name="cursos" id="cat" style="width:95px" [(ngModel)]="cat">
+        <option value="prim">dudas</option>
+        <option value="seg">2</option>
+        <option value="ter">3</option>
+        <option value="cuar">4</option>
+      </select><br><br>
+      <label class="date"><b>Fecha</b></label>
+      <select name="cursos" id="fechas" [(ngModel)]="fech">
+        <option value="prim">dudas</option>
+        <option value="seg">2</option>
+        <option value="ter">3</option>
+        <option value="cuar">4</option>
+      </select><br>
+      <label class="answer"><b>Número respuestas</b></label>
+      <select name="cursos" id="res" [(ngModel)]="res">
+        <option value="prim">dudas</option>
+        <option value="seg">2</option>
+        <option value="ter">3</option>
+        <option value="cuar">4</option>
+      </select><br><br>
+    </form>
+  </div>
+  <br>
+  <button type="button" class="new">Nuevo Tema</button>
+</div>
