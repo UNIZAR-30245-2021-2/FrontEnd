@@ -1,20 +1,24 @@
 <div *ngIf="aparecer" class="vista-lista">
   <button type="button" class="menu" (click)="Servicio.nextMessageCentral(true);Servicio.nextMessageVistaLista(false)">Inicio</button>
-  <button type="button" class="menu2">Tercero</button>
+  <button type="button" class="menu2">{{curso}}</button>
   <button type="submit" class="perfil">Mi cuenta</button>
   <hr>
   <br>
-  <p class="tituloCurso">Asignaturas de Tercer Curso:</p>
+  <p class="tituloCurso">Asignaturas de {{curso}} Curso:</p>
   <br>
   <hr>
-  <p class="c" (click)="Servicio.nextMessageVistaAsig(true);Servicio.nextMessageVistaLista(false);">Arquitectura Software</p>
+  <p class="c" (click)="Servicio.nextMessageVistaAsig(true);Servicio.nextMessageVistaLista(false);
+    Servicio.nextMessageObjAsig(result[0]); Servicio.nextMessageIDAsig(ides[0]);">{{result[0]}}</p>
   <hr>
-  <p class="c">Proyecto Software</p>
+  <p class="c" (click)="Servicio.nextMessageVistaAsig(true);Servicio.nextMessageVistaLista(false);
+    Servicio.nextMessageObjAsig(result[1]); Servicio.nextMessageIDAsig(ides[1]);">{{result[1]}}</p>
   <hr>
-  <p class="c" >Ingeniería de Requisitos</p>
+  <p class="c" (click)="Servicio.nextMessageVistaAsig(true);Servicio.nextMessageVistaLista(false);
+  Servicio.nextMessageObjAsig(result[2]); Servicio.nextMessageIDAsig(ides[2]);">{{result[2]}}</p>
   <hr>
-  <p class="c"> Verificación y Validación</p>
+  <p class="c" (click)="Servicio.nextMessageVistaAsig(true);Servicio.nextMessageVistaLista(false);
+  Servicio.nextMessageObjAsig(result[3]); Servicio.nextMessageIDAsig(ides[3]);">{{result[3]}}</p>
   <hr>
-
-
+  <p class="c" (click)="Servicio.nextMessageVistaAsig(true);Servicio.nextMessageVistaLista(false);
+  Servicio.nextMessageObjAsig(result[4]); Servicio.nextMessageIDAsig(ides[4]);">{{result[4]}}</p>
 </div>

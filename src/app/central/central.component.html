@@ -6,13 +6,13 @@
   <p class="tituloCurso">Cursos:</p>
   <br>
   <hr>
-  <p class="c">1er curso</p>
+  <p class="c" (click)="Servicio.nextMessageCentCurso(primero);Servicio.nextMessageVistaLista(true)">1er curso</p>
   <hr>
-  <p class="c">2º curso</p>
+  <p class="c" (click)="Servicio.nextMessageCentCurso(segundo);Servicio.nextMessageVistaLista(true)">2º curso</p>
   <hr>
-  <p class="c" (click)="Servicio.nextMessageVistaLista(true)">3er curso</p>
+  <p class="c" (click)="Servicio.nextMessageCentCurso(tercero);Servicio.nextMessageVistaLista(true)">3er curso</p>
   <hr>
-  <p class="c">4º curso</p>
+  <p class="c" (click)="Servicio.nextMessageCentCurso(cuarto);Servicio.nextMessageVistaLista(true)" >4º curso</p>
   <hr>
 
 </div>

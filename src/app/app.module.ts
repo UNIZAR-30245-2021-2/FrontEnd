@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { CentralComponent } from './central/central.component';
 import { VistaListaComponent } from './vista-lista/vista-lista.component';
 import { VistaAsignaturaComponent } from './vista-asignatura/vista-asignatura.component';
+import { CrearTemaComponent } from './crear-tema/crear-tema.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { VistaAsignaturaComponent } from './vista-asignatura/vista-asignatura.co
     CentralComponent,
     VistaListaComponent,
     VistaAsignaturaComponent,
+    CrearTemaComponent,
   ],
   imports: [
     BrowserModule,

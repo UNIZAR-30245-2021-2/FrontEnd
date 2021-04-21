@@ -1,0 +1,30 @@
+<div *ngIf="mostrar" class="crear-tema">
+  <button type="button" class="menu" (click)="Servicio.nextMessageCentral(true);Servicio.nextMessageVistaLista(false);
+Servicio.nextMessageVistaAsig(false); Servicio.nextMesssageCrearTema(false);clear();">Inicio</button>
+  <button type="button" class="menu2" (click)="Servicio.nextMessageVistaLista(true);
+Servicio.nextMessageVistaAsig(false);Servicio.nextMesssageCrearTema(false);clear();">{{curso}}</button>
+  <button type="button" class="menu3" (click)="Servicio.nextMessageVistaAsig(true); Servicio.nextMesssageCrearTema(false);clear();">{{subject}}</button>
+  <button type="submit" class="perfil">Mi cuenta</button>
+  <br>
+
+  <label class="title"><b>Nuevo tema:</b></label>
+  <br>
+  <hr>
+  <form class="dataTema">
+    <label class="asunto"><b>Asunto:  </b></label><input type="text" size="80" required name="asunt" [(ngModel)]="asunt">
+    <br><br>
+    <label class="category"><b>Categoría:  </b></label>
+    <select  name="type" id="cat" style="width:105px" [(ngModel)]="type">
+      <option value="Duda">Duda</option>
+      <option value="Apuntes">Apuntes</option>
+      <option value="Búsqueda pareja/grupo prácticas">Búsqueda pareja/grupo prácticas</option>
+      <option value="Anuncio">Anuncio</option>
+      <option value="Otra">Otra</option>
+    </select>
+    <br><br>
+    <label class="body"><b>Contenido:  </b></label><input type="text" style="width: 600px;height: 400px" required name="body" [(ngModel)]="body"><br>
+  </form>
+  <br><br>
+  <button type="button" class="pub" (click)="publicar()">Publicar</button>
+
+</div>

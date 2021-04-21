@@ -43,9 +43,6 @@ export class LoginComponent implements OnInit {
 
 
    comprobar(){
-    //const params = new HttpParams().set('username', this.nomUsuario).set('password', btoa(this.contrasena));
-    /*  const respuesta = await fetch(this.Servicio.URL_API, {body: JSON.stringify(usuario), method: 'POST',});
-    const json = await respuesta.json();*/
 
     const usuario = {
       username: this.nomUsuario,
@@ -56,11 +53,11 @@ export class LoginComponent implements OnInit {
 
 
     this.http.post(this.Servicio.URL_API + '/users/login/', JSON.stringify(usuario),{headers}).subscribe(
-      (resp: JSON) => { this.logeado = true;
+      (resp: string) => { this.logeado = true;
         this.Servicio.nextMessageCentral(true);
-        this.Servicio.nextMessage2(true);
+        this.Servicio.nextMessage2(true); this.json(resp);
       },
-      (error:string)=> {this.aviso=true;} );
+      (error: string) => {this.aviso = true; } );
   }
 
   resetearCampos(){
@@ -68,4 +65,10 @@ export class LoginComponent implements OnInit {
     this.contrasena = '';
   }
 
+  json(resp){
+    //const data = JSON.parse(resp);
+    this.Servicio.nextMessageID(resp.user.id);
+    this.Servicio.nextMessageTok(resp.token);
+    console.log(resp.token);
+  }
 }

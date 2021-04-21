@@ -2,8 +2,8 @@
   <button type="button" class="menu" (click)="Servicio.nextMessageCentral(true);Servicio.nextMessageVistaLista(false);
 Servicio.nextMessageVistaAsig(false)">Inicio</button>
   <button type="button" class="menu2" (click)="Servicio.nextMessageVistaLista(true);
-Servicio.nextMessageVistaAsig(false)">Tercero</button>
-  <button type="button" class="menu3">Arquitectura Software</button>
+Servicio.nextMessageVistaAsig(false)">{{curso}}</button>
+  <button type="button" class="menu3">{{subject}}</button>
   <button type="submit" class="perfil">Mi cuenta</button>
   <br>
 <br>
@@ -11,30 +11,40 @@ Servicio.nextMessageVistaAsig(false)">Tercero</button>
   <div class="rectangulo">
     <br>
     <form>
-      <label class="tem"><b>Tema</b></label><input type="text" size="40" required [(ngModel)]="tema">
+      <label class="tem"><b>Título</b></label><input type="text" size="40" required name="tema" [(ngModel)]="tema"><img class="icon"(click)="buscarTitulo()" src="../../assets/lens.png" alt="Buscar">
       <label class="category"><b>Categoría</b></label>
-      <select  name="cursos" id="cat" style="width:95px" [(ngModel)]="cat">
-        <option value="prim">dudas</option>
-        <option value="seg">2</option>
-        <option value="ter">3</option>
-        <option value="cuar">4</option>
+      <select  name="cursos" id="cat" style="width:95px" [(ngModel)]="cat" (change)="ordeCat()">
+        <option value="Duda">Duda</option>
+        <option value="Apuntes">Apuntes</option>
+        <option value="Búsqueda grupo/pareja prácticas">Búsqueda grupo/pareja prácticas</option>
+        <option value="Anuncio">Anuncio</option>
+        <option value="Otro">Otro</option>
       </select><br><br>
       <label class="date"><b>Fecha</b></label>
-      <select name="cursos" id="fechas" [(ngModel)]="fech">
-        <option value="prim">dudas</option>
-        <option value="seg">2</option>
-        <option value="ter">3</option>
-        <option value="cuar">4</option>
+      <select name="cursos" id="fechas" [(ngModel)]="fech" (change)="ordenFecha()">
+        <option value="created">Recientes</option>
+        <option value="updated">Actualizadas</option>
       </select><br>
-      <label class="answer"><b>Número respuestas</b></label>
+      <!--<label class="answer"><b>Número respuestas</b></label>
       <select name="cursos" id="res" [(ngModel)]="res">
         <option value="prim">dudas</option>
         <option value="seg">2</option>
         <option value="ter">3</option>
         <option value="cuar">4</option>
-      </select><br><br>
+      </select><br>--><br>
     </form>
   </div>
   <br>
-  <button type="button" class="new">Nuevo Tema</button>
+  <button type="button" class="new" (click)="Servicio.nextMesssageCrearTema(true);Servicio.nextMessageVistaAsig(false)">Nuevo Tema</button>
+  <br><br>
+  <div *ngFor="let p of posts; index as i" >
+    <div class="contenedor">
+      <p class="tit">{{p}}</p>
+      <p class="cat">{{type[i]}}</p>
+      <p class="time">{{time[i]}}</p>
+    </div>
+
+
+  </div>
+
 </div>

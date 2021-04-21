@@ -13,10 +13,10 @@ export class CentralComponent implements OnInit {
   mostrar = true;
   usuarioLogeado: User; // Quien está en la plataforma
 
-
-  vistaSelPod: boolean;
-  podcastObjetivo: number;
-  okVista = true;
+  primero = 'Primer';
+  segundo =  'Segundo';
+  tercero = 'Tercer';
+  cuarto = 'Cuarto';
 
 
   constructor(private http: HttpClient, public Servicio: ServicioComponentesService) { }
