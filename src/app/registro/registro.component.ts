@@ -9,9 +9,9 @@ import {ServicioComponentesService} from '../servicios/servicio-componentes.serv
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  @Input() registro1; //Flag si se solicita proceso de registro
+  @Input() registro1; // Flag si se solicita proceso de registro
   public login = true;
-  public existe=false;
+  public existe = false;
 
   public aceptadoT;
 
@@ -45,8 +45,6 @@ export class RegistroComponent implements OnInit {
 
 
  registrado() {
-    //Después del registro, vuelve a la pantalla de login
-    //this.Servicio.nextMessage2(this.login);
     this.registro1 = false;
 
     const nuevo: UserRequest = { // Objeto usuario en registro
@@ -57,11 +55,11 @@ export class RegistroComponent implements OnInit {
       password: this.pass2,
     };
 
-   let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-    this.http.post(this.Servicio.URL_API + '/users/', JSON.stringify(nuevo),{headers}).subscribe(
-     (resp: JSON) => {this.registro1=false; this.Servicio.nextMessage2(false);},
-      (error:string) => {this.existe=true; this.registro1=true;this.Servicio.nextMessageCentral(false);} );
+    this.http.post(this.Servicio.URL_API + '/users/', JSON.stringify(nuevo), {headers}).subscribe(
+     (resp: JSON) => {this.registro1 = false; this.Servicio.nextMessage2(false); },
+      (error: string) => {this.existe = true; this.registro1 = true; this.Servicio.nextMessageCentral(false); } );
 
     this.resetCampos();
   }
@@ -69,17 +67,16 @@ export class RegistroComponent implements OnInit {
   /* Función para comprobar si los datos del formulario son adecuados */
    datosok() {
      const  cOk = /\d+@unizar.es/.test(this.correo);
-    return (this.alias !== '' && (this.alias.length >= 4) && (this.alias.length <= 64) && this.correo !== '' && cOk
+     return (this.alias !== '' && (this.alias.length >= 4) && (this.alias.length <= 64) && this.correo !== '' && cOk
            && this.pass !== '' && (this.pass.length >= 8) && (this.pass.length <= 32) && this.pass2 !== '' &&
             this.pass === this.pass2 &&  this.aceptadoT);
   }
 
   alternarAceptado() {
-    if (this.aceptadoT) { this.aceptadoT = false;}
-    else this.aceptadoT = true;
+    if (this.aceptadoT) { this.aceptadoT = false; } else { this.aceptadoT = true; }
   }
 
-  newToLogin(){
+  newToLogin() {
      this.Servicio.nextMessage2(this.login);
   }
 

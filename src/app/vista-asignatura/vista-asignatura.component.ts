@@ -22,9 +22,10 @@ export class VistaAsignaturaComponent implements OnInit {
   id: number = null;
   token;
 
-  posts=[];
-  type=[];
-  time=[];
+  posts = [];
+  type = [];
+  time = [];
+  ides = [];
   constructor(public Servicio: ServicioComponentesService, private http: HttpClient) {
   }
 
@@ -37,114 +38,141 @@ export class VistaAsignaturaComponent implements OnInit {
   }
 
 
-  /***** Si se lanza la app y sale en pantalla un error de GET es por esta funcion.
-   * Para que se lance bien, comentar el contenido de la funcion.
-   * Una vez se actualice, descomentarla y funcionara bien.
-   * Aun no se sabe bien por que ocurre esto.
-   */
-  obtenerPosts(){
-    if (this.id != null){
+
+  obtenerPosts() {
+    if (this.id != null) {
        const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
 
        this.http.get(this.Servicio.URL_API + '/posts/subject/' + this.id + '/created', {headers} ).subscribe(
          (resp: string) => {
-           this.posts =[];
+           this.posts = [];
            this.type = [];
            this.time = [];
-           if(resp.posts != null){
-             for (let i =0 ; i < resp.posts.length; i++){
-               //this.posts[i] =  resp.posts[i].title + '\n\n\n' + resp.posts[i].category;
+           this.ides = [];
+           // @ts-ignore
+           if (resp.posts != null) {
+             // @ts-ignore
+             for (let i = 0 ; i < resp.posts.length; i++) {
+               // @ts-ignore
                this.posts[i] = resp.posts[i].title;
+               // @ts-ignore
                this.type[i] = resp.posts[i].category;
-               this.time[i] = (resp.posts[i].created_at).split('T',1);
+               // @ts-ignore
+               this.time[i] = (resp.posts[i].created_at).split('T', 1);
+               // @ts-ignore
+               this.ides[i] = resp.posts[i].id;
              }
-           }
-           else{
-             this.posts =[];
+           } else {
+             this.posts = [];
              this.type = [];
              this.time = [];
+             this.ides = [];
            }
          },
          (error: string) => {console.log(error); });
     }
  }
 
- ordeCat(){
+ ordeCat() {
    const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
 
    this.http.get(this.Servicio.URL_API + '/posts/' + this.id + '/category/' + this.cat, {headers} ).subscribe(
      (resp: string) => {
-       if(resp.posts != null){
-         this.posts =[];
+       // @ts-ignore
+       if (resp.posts != null) {
+         this.posts = [];
          this.type = [];
-         this.time= [];
-         for (let i =0 ; i < resp.posts.length; i++){
+         this.time = [];
+         this.ides = [];
+         // @ts-ignore
+         for (let i = 0 ; i < resp.posts.length; i++) {
+           // @ts-ignore
            this.posts[i] = resp.posts[i].title;
+           // @ts-ignore
            this.type[i] = resp.posts[i].category;
-           this.time[i] = (resp.posts[i].created_at).split('T',1);
+           // @ts-ignore
+           this.time[i] = (resp.posts[i].created_at).split('T', 1);
+           // @ts-ignore
+           this.ides[i] = resp.posts[i].id;
          }
-       }
-       else{
-         this.posts =[];
+       } else {
+         this.posts = [];
          this.type = [];
-         this.time= [];
+         this.time = [];
+         this.ides = [];
        }
-     },(error: string) => {console.log(error); });
+     }, (error: string) => {console.log(error); });
    this.clear();
  }
 
- buscarTitulo(){
+ buscarTitulo() {
    const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
 
    this.http.get(this.Servicio.URL_API + '/posts/' + this.id + '/title/' + this.tema, {headers} ).subscribe(
      (resp: string) => {
-       if(resp.posts != null){
-         this.posts =[];
+       // @ts-ignore
+       if (resp.posts != null) {
+         this.posts = [];
          this.type = [];
-         this.time= [];
-         for (let i =0 ; i < resp.posts.length; i++){
+         this.time = [];
+         this.ides = [];
+         // @ts-ignore
+         for (let i = 0 ; i < resp.posts.length; i++) {
+           // @ts-ignore
            this.posts[i] = resp.posts[i].title;
+           // @ts-ignore
            this.type[i] = resp.posts[i].category;
-           this.time[i] = (resp.posts[i].created_at).split('T',1);
+           // @ts-ignore
+           this.time[i] = (resp.posts[i].created_at).split('T', 1);
+           // @ts-ignore
+           this.ides[i] = resp.posts[i].id;
          }
-       }
-       else{
-         this.posts =[];
+       } else {
+         this.posts = [];
          this.type = [];
-         this.time= [];
+         this.time = [];
+         this.ides = [];
        }
-     },(error: string) => {console.log(error); });
+     }, (error: string) => {console.log(error); });
    this.clear();
  }
 
- ordenFecha(){
+ ordenFecha() {
    const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
 
-   this.http.get(this.Servicio.URL_API + '/posts/subject/' + this.id + '/'+ this.fech, {headers} ).subscribe(
+   this.http.get(this.Servicio.URL_API + '/posts/subject/' + this.id + '/' + this.fech, {headers} ).subscribe(
      (resp: string) => {
-       this.posts =[];
+       this.posts = [];
        this.type = [];
-       this.time= [];
-       if(resp.posts != null){
-         for (let i =0 ; i < resp.posts.length; i++){
+       this.time = [];
+       this.ides = [];
+       // @ts-ignore
+       if (resp.posts != null) {
+         // @ts-ignore
+         for (let i = 0 ; i < resp.posts.length; i++) {
+           // @ts-ignore
            this.posts[i] = resp.posts[i].title;
+           // @ts-ignore
            this.type[i] = resp.posts[i].category;
-           this.time[i] = (resp.posts[i].created_at).split('T',1);
+           // @ts-ignore
+           this.time[i] = (resp.posts[i].created_at).split('T', 1);
+           // @ts-ignore
+           this.ides[i] = resp.posts[i].id;
          }
-       }
-       else{
-         this.posts =[];
+       } else {
+         this.posts = [];
          this.type = [];
          this.time = [];
+         this.ides = [];
        }
      },
      (error: string) => {console.log(error); });
    this.clear();
  }
 
- clear(){
-    this.tema='';
-    this.cat='';
-    this.fech= '';
+ clear() {
+    this.tema = '';
+    this.cat = '';
+    this.fech = '';
  }
 }

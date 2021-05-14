@@ -11,14 +11,13 @@ import {stringify} from 'querystring';
 })
 export class LoginComponent implements OnInit {
   logeado;
-  registro: boolean = true;
-  aviso: boolean = false;
+  registro = true;
+  aviso = false;
 
   // campos de login
   nomUsuario: string;
   contrasena: string;
-  correctoNick: string;
-  correctoPass: string;
+
 
   usuario: User = new User();
 
@@ -33,16 +32,15 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.logeado = false;
     this.Servicio.nextMessage2(false);
-    this.Servicio.nextMessage(this.usuario);
     this.Servicio.sharedMessage2.subscribe(message2 => this.logeado = message2);
   }
 
-  sendMessageFather(){
+  sendMessageFather() {
     this.messageEvent.emit(this.registro);
   }
 
 
-   comprobar(){
+   comprobar() {
 
     const usuario = {
       username: this.nomUsuario,
@@ -52,23 +50,23 @@ export class LoginComponent implements OnInit {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
 
-    this.http.post(this.Servicio.URL_API + '/users/login/', JSON.stringify(usuario),{headers}).subscribe(
+    this.http.post(this.Servicio.URL_API + '/users/login/', JSON.stringify(usuario), {headers}).subscribe(
       (resp: string) => { this.logeado = true;
-        this.Servicio.nextMessageCentral(true);
-        this.Servicio.nextMessage2(true); this.json(resp);
+                          this.Servicio.nextMessageCentral(true);
+                          this.Servicio.nextMessage2(true); this.json(resp); this.Servicio.nextMessageNomUser(this.nomUsuario);
       },
       (error: string) => {this.aviso = true; } );
   }
 
-  resetearCampos(){
+  resetearCampos() {
     this.nomUsuario = '';
     this.contrasena = '';
   }
 
-  json(resp){
-    //const data = JSON.parse(resp);
+  json(resp) {
     this.Servicio.nextMessageID(resp.user.id);
     this.Servicio.nextMessageTok(resp.token);
+    this.Servicio.nextMessageAdminMode(resp.user.admin);
     console.log(resp.token);
   }
 }

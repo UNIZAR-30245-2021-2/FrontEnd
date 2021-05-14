@@ -1,0 +1,120 @@
+.perfil-usuario{
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  font-family: Roboto, serif;
+  overflow: auto;
+}
+
+.menu {
+  width: auto;
+  padding: 0.75% 1%;
+  background-color: mediumturquoise;
+  margin-left:3%;
+  margin-top: 2%;
+  color: black;
+  cursor: pointer;
+}
+
+.perfil{
+  width: auto;
+  padding: 0.75% 1%;
+  background-color: mediumturquoise;
+  margin-left:75%;
+  margin-top: 2%;
+  color: black;
+  cursor:pointer;
+}
+
+.b1{
+  margin-left: 10%;
+  background-color: mediumturquoise;
+  color: black;
+  cursor: pointer;
+}
+
+.b2{
+  background-color: mediumturquoise;
+  color: black;
+  cursor: pointer;
+}
+
+.b3{
+  background-color: mediumturquoise;
+  color: black;
+  cursor: pointer;
+}
+
+.rectangulo{
+  width: 800px;
+  height: 350px;
+  border: 3px solid black;
+  margin-left: 10%;
+  background-color: mediumturquoise;
+}
+
+.datos{
+  margin-left: 5%;
+  font-size: 21px;
+}
+
+.icon{
+  width: 200px;
+  height: 200px;
+  margin-left: 180%;
+}
+
+.userN{
+  margin-top: -15%;
+  margin-left: 7%;
+}
+
+.email {
+  margin-top: -85%;
+  margin-left: 7%;
+}
+
+.cur{
+  margin-top: -45%;
+  margin-left: 7%;
+}
+
+.email2{
+  margin-top: -15%;
+  margin-left: 10%;
+}
+
+.cur2{
+  margin-top: -55%;
+  margin-left: 10%;
+}
+
+.save{
+  margin-left: 35%;
+  cursor: pointer;
+}
+
+.icon2{
+  width: 200px;
+  height: 200px;
+  margin-left: 150%;
+}
+
+.denegado{
+  transition-duration: 0.4s;
+  background-color: red;
+  border-radius: 10px;
+  cursor: not-allowed;
+  margin-left: 35%;
+  color: white;
+  border: none;
+}
+
+.denegado:hover {
+  background-color: red;
+  color: #747474;
+}

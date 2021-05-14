@@ -1,24 +1,25 @@
 <div *ngIf="aparecer" class="vista-lista">
-  <button type="button" class="menu" (click)="Servicio.nextMessageCentral(true);Servicio.nextMessageVistaLista(false)">Inicio</button>
-  <button type="button" class="menu2">{{curso}}</button>
+  <button type="button" class="menu" (click)="Servicio.nextMessageCentral(true);Servicio.nextMessageVistaLista(false);anyadir=false">Inicio</button>
+  <button type="button" class="menu2" (click)="anyadir=false">{{curso}}</button>
   <button type="submit" class="perfil">Mi cuenta</button>
   <hr>
   <br>
   <p class="tituloCurso">Asignaturas de {{curso}} Curso:</p>
   <br>
-  <hr>
-  <p class="c" (click)="Servicio.nextMessageVistaAsig(true);Servicio.nextMessageVistaLista(false);
-    Servicio.nextMessageObjAsig(result[0]); Servicio.nextMessageIDAsig(ides[0]);">{{result[0]}}</p>
-  <hr>
-  <p class="c" (click)="Servicio.nextMessageVistaAsig(true);Servicio.nextMessageVistaLista(false);
-    Servicio.nextMessageObjAsig(result[1]); Servicio.nextMessageIDAsig(ides[1]);">{{result[1]}}</p>
-  <hr>
-  <p class="c" (click)="Servicio.nextMessageVistaAsig(true);Servicio.nextMessageVistaLista(false);
-  Servicio.nextMessageObjAsig(result[2]); Servicio.nextMessageIDAsig(ides[2]);">{{result[2]}}</p>
-  <hr>
-  <p class="c" (click)="Servicio.nextMessageVistaAsig(true);Servicio.nextMessageVistaLista(false);
-  Servicio.nextMessageObjAsig(result[3]); Servicio.nextMessageIDAsig(ides[3]);">{{result[3]}}</p>
-  <hr>
-  <p class="c" (click)="Servicio.nextMessageVistaAsig(true);Servicio.nextMessageVistaLista(false);
-  Servicio.nextMessageObjAsig(result[4]); Servicio.nextMessageIDAsig(ides[4]);">{{result[4]}}</p>
+  <div *ngIf="ad">
+    <p class="nuevo" (click)="anyadir=true">Nuevo</p>
+  </div>
+  <div class="newAs" *ngIf="anyadir">
+    <label class="text"><b>Nombre:</b></label><input type="text" placeholder="name" name="nom" required [(ngModel)]="nombre">
+    <button class="sig" (click)="crearAs(); anyadir=false">Añadir</button>
+  </div>
+  <div *ngFor="let p of result; index as i" >
+    <div class="contenedor">
+      <img class="icon" src="../../assets/asignatura.png" alt="Asignatura"><p class="c" (click)="Servicio.nextMessageVistaAsig(true);Servicio.nextMessageVistaLista(false);
+    Servicio.nextMessageObjAsig(result[i]); Servicio.nextMessageIDAsig(ides[i]);">{{result[i]}}</p>
+      <div *ngIf="ad">
+        <p class="elim" (click)="eliminarAs(ides[i])">Eliminar</p>
+      </div>
+    </div>
+  </div>
 </div>

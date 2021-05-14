@@ -1,12 +1,12 @@
-<div *ngIf="mostrar" class="crear-tema">
+<div *ngIf="mostrar" class="mod-tema">
   <button type="button" class="menu" (click)="Servicio.nextMessageCentral(true);Servicio.nextMessageVistaLista(false);
-Servicio.nextMessageVistaAsig(false); Servicio.nextMesssageCrearTema(false);clear();">Inicio</button>
+Servicio.nextMessageVistaAsig(false); Servicio.nextMesssageCrearTema(false);Servicio.nextMessageVerModi(false)">Inicio</button>
   <button type="button" class="menu2" (click)="Servicio.nextMessageVistaLista(true);
-Servicio.nextMessageVistaAsig(false);Servicio.nextMesssageCrearTema(false);clear();">{{curso}}</button>
-  <button type="button" class="menu3" (click)="Servicio.nextMessageVistaAsig(true); Servicio.nextMesssageCrearTema(false);clear();">{{subject}}</button>
+Servicio.nextMessageVistaAsig(false);Servicio.nextMesssageCrearTema(false);Servicio.nextMessageVerModi(false)">{{curso}}</button>
+  <button type="button" class="menu3" (click)="Servicio.nextMessageVistaAsig(true); Servicio.nextMesssageCrearTema(false);Servicio.nextMessageVerModi(false)">{{subject}}</button>
   <button type="submit" class="perfil">Mi cuenta</button>
   <br>
-  <p class="title"><b>Nuevo tema:</b></p>
+  <p class="title"><b>Modificar tema:</b></p>
   <br>
   <hr>
   <form class="dataTema">
@@ -26,5 +26,5 @@ Servicio.nextMessageVistaAsig(false);Servicio.nextMesssageCrearTema(false);clear
     <br>
   </form>
   <br><br>
-  <button type="button" class="pub" (click)="publicar()">Publicar</button>
+  <button type="button" class="pub" (click)="guardar()">Guardar</button>
 </div>

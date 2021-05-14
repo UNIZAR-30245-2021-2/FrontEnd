@@ -11,7 +11,6 @@ import {User} from '../app.component';
 })
 export class CentralComponent implements OnInit {
   mostrar = true;
-  usuarioLogeado: User; // Quien está en la plataforma
 
   primero = 'Primer';
   segundo =  'Segundo';

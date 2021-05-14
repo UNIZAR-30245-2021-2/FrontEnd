@@ -1,0 +1,53 @@
+<div *ngIf="mostrar" class="perfil-usuario">
+  <button type="button" class="menu" (click)="Servicio.nextMessageCentral(true); Servicio.nextMessageVerPerfilUser(false)">Inicio</button>
+  <button type="submit" class="perfil">Mi cuenta</button>
+  <hr>
+  <br>
+  <br>
+  <button type="button" class="b1" (click)="editP=false; perfil=true">Mi perfil</button>
+  <button type="button" class="b2" (click)="perfil=false; editP=true">Editar perfil</button>
+  <button type="button" class="b3" (click)="perfil=false; editP=true">Temas y Respuestas</button>
+  <br><br>
+  <div *ngIf="perfil">
+    <div class="rectangulo">
+      <label><p class="datos">Datos personales: </p></label>
+      <br><br>
+      <tr>
+        <td><p class="userN">Nombre de usuario: {{nomUser}}</p></td>
+        <td width="100"  rowspan="4"><img class="icon" src="{{img}}" alt="user"></td>
+      </tr>
+      <tr>
+        <td><p class="email">Correo: {{correo}}</p></td>
+      </tr>
+      <tr>
+        <td><p class="cur">Curso: {{curso}}</p></td>
+      </tr>
+    </div>
+  </div>
+  <div *ngIf="editP">
+    <div class="rectangulo">
+      <label><p class="datos">Datos personales: </p></label>
+      <br><br>
+      <tr>
+        <td><p class="email2">Correo: </p><input style="margin-left: 10%" type="text" size="20" required name="tema" [(ngModel)]="correo2"></td>
+        <td width="100"  rowspan="4"><img class="icon2" src="{{img}}" alt="user"></td>
+      </tr>
+      <tr>
+        <td><p class="cur2">Curso: </p><select style="margin-left: 10%" name="cursos" id="cursos" [(ngModel)]="curso2">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select></td>
+      </tr>
+      <button type="button" class="save" *ngIf="comprobar()" (click)="guardar()">Guardar Cambios</button>
+      <button  type="button" *ngIf="!comprobar()" disabled class="denegado">Guardar Cambios</button>
+    </div>
+  </div>
+  <div *ngIf="replies">
+    <div class="rectangulo">
+
+    </div>
+  </div>
+</div>
+

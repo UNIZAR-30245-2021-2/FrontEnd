@@ -18,7 +18,7 @@ Servicio.nextMessageVistaAsig(false)">{{curso}}</button>
         <option value="Apuntes">Apuntes</option>
         <option value="Búsqueda grupo/pareja prácticas">Búsqueda grupo/pareja prácticas</option>
         <option value="Anuncio">Anuncio</option>
-        <option value="Otro">Otro</option>
+        <option value="Otra">Otra</option>
       </select><br><br>
       <label class="date"><b>Fecha</b></label>
       <select name="cursos" id="fechas" [(ngModel)]="fech" (change)="ordenFecha()">
@@ -39,12 +39,10 @@ Servicio.nextMessageVistaAsig(false)">{{curso}}</button>
   <br><br>
   <div *ngFor="let p of posts; index as i" >
     <div class="contenedor">
-      <p class="tit">{{p}}</p>
-      <p class="cat">{{type[i]}}</p>
-      <p class="time">{{time[i]}}</p>
+      <img class="icon2" src="../../assets/tema.png" alt="Tema"><p class="tit" (click)=" Servicio.nextMessageVerTema(true);Servicio.nextMessageIdTema(ides[i]); Servicio.nextMessageVistaAsig(false);Servicio.nextMessageVistaLista(false);">{{p}}</p>
+      <p class="time">{{time[i]}}</p><p class="cat">{{type[i]}}</p>
     </div>
-
-
   </div>
+  <br>
 
 </div>

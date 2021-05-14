@@ -1,18 +1,21 @@
 <div *ngIf="mostrar" class="inicio">
   <button type="button" class="menu">Inicio</button>
-  <button type="submit" class="perfil">Mi cuenta</button>
+  <button type="submit" class="perfil" (click)="Servicio.nextMessageVerPerfilUser(true); Servicio.nextMessageCentral(false)">Mi cuenta</button>
   <hr>
   <br>
-  <p class="tituloCurso">Cursos:</p>
+  <p class="tituloCurso">Cursos Grado en Ingeniería Informática:</p>
   <br>
-  <hr>
-  <p class="c" (click)="Servicio.nextMessageCentCurso(primero);Servicio.nextMessageVistaLista(true)">1er curso</p>
-  <hr>
-  <p class="c" (click)="Servicio.nextMessageCentCurso(segundo);Servicio.nextMessageVistaLista(true)">2º curso</p>
-  <hr>
-  <p class="c" (click)="Servicio.nextMessageCentCurso(tercero);Servicio.nextMessageVistaLista(true)">3er curso</p>
-  <hr>
-  <p class="c" (click)="Servicio.nextMessageCentCurso(cuarto);Servicio.nextMessageVistaLista(true)" >4º curso</p>
-  <hr>
-
+  <div class="contenedor">
+    <img class="icon" src="../../assets/curso.png" alt="Curso"><p class="c" (click)="Servicio.nextMessageCentCurso(primero);Servicio.nextMessageVistaLista(true)">1er curso</p>
+  </div>
+  <div class="contenedor">
+    <img class="icon" src="../../assets/curso.png" alt="Curso"><p class="c" (click)="Servicio.nextMessageCentCurso(segundo);Servicio.nextMessageVistaLista(true)">2º curso</p>
+  </div>
+  <div class="contenedor">
+    <img class="icon" src="../../assets/curso.png" alt="Curso"><p class="c" (click)="Servicio.nextMessageCentCurso(tercero);Servicio.nextMessageVistaLista(true)">3er curso</p>
+  </div>
+  <div class="contenedor">
+    <img class="icon" src="../../assets/curso.png" alt="Curso"><p class="c" (click)="Servicio.nextMessageCentCurso(cuarto);Servicio.nextMessageVistaLista(true)" >4º curso</p>
+  </div>
+  <br>
 </div>

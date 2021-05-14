@@ -1,4 +1,4 @@
-.vista-asig{
+.ver{
   z-index: 1;
   position: fixed;
   top: 0;
@@ -71,54 +71,98 @@
   cursor: pointer;
 }
 
-.rectangulo{
-  width: 600px;
-  height: 150px;
-  border: 3px solid black;
-  margin-left: 30%;
-  background-color: mediumturquoise;
+.tit{
+  margin-left: 5%;
+  font-size: 25px;
+  color: black;
 }
- .tit{
-   margin-left: 15%;
-   font-size: 25px;
-   color: black;
-   cursor: pointer;
-   display: inline-block;
- }
 
-.cat{
+.mini{
+  margin-left: 5%;
   font-size: 14px;
   color: black;
   font-style: italic;
-  margin-left: 85%;
 }
 
-.time{
-  font-size: 14px;
-  color: black;
-  padding-right: 65%;
-  margin-left: 20%;
 
-}
 
 .contenedor{
   margin-left: 20%;
   margin-right: 20%;
   margin-top: 5%;
-  padding-top: 0%;
   border: solid 1px black;
   background-color: mediumturquoise;
   box-shadow: 0 10px 10px grey;
 }
 
-.icon{
-  height: 2.5%;
-  width: 2.5%;
+.edit{
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: 70%;
+}
+
+.elim{
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: 70%;
+}
+
+.comments{
+  font-size: 25px;
+  margin-left: 20%;
+}
+
+.icon2{
+  height: 1%;
+  width: 1%;
+  margin-left: 5%;
+}
+
+.añadir{
+  display: inline-block;
+  margin-left: 20%;
+}
+
+.time{
+  margin-left: 12%;
+  font-size: 12px;
+}
+
+.tit2{
+  font-size: 14px;
+  color: black;
 }
 
 
-.icon2{
-  height: 5%;
-  width: 5%;
+.icon3{
+  width: 30px;
+  height: 30px;
+  margin-left: 15%;
+}
 
+.nom{
+  font-size: 12px;
+  margin-left: 25%;
+}
+
+.icon4{
+  width: 30px;
+  height: 30px;
+  margin-left:175%;
+}
+
+.nom2{
+  font-size: 12px;
+  margin-left: 175%;
+}
+
+.com{
+  margin-left: 120%;
+  background-color: mediumturquoise;
+}
+
+.elim2{
+  font-size: 12px;
+  margin-left: 90%;
+  cursor: pointer;
 }

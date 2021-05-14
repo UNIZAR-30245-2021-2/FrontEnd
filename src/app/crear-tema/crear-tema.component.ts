@@ -10,12 +10,12 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class CrearTemaComponent implements OnInit {
   mostrar: boolean;
-  asunt:string;
-  type:string;
-  body:string;
+  asunt: string;
+  type: string;
+  body: string;
 
-  id:number;
-  token:string;
+  id: number;
+  token: string;
   idAsig: number;
 
   curso: string;
@@ -33,10 +33,10 @@ export class CrearTemaComponent implements OnInit {
     this.Servicio.sharedMessageIDAsig.subscribe( id => this.idAsig = id);
   }
 
-  publicar(){
-    const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`, 'Content-Type': 'application/json'});
+  publicar() {
+    const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
 
-      const post = {
+    const post = {
         title: this.asunt,
         category: this.type,
         body: this.body,
@@ -44,16 +44,17 @@ export class CrearTemaComponent implements OnInit {
         subject_id: this.idAsig,
       };
 
-    this.http.post(this.Servicio.URL_API + '/posts/', JSON.stringify(post),{headers}).subscribe(
+    this.http.post(this.Servicio.URL_API + '/posts/', JSON.stringify(post), {headers}).subscribe(
       (resp: string) => { this.mostrar = false;
-        this.Servicio.nextMessageVistaAsig(true); this.clear();
+                          this.Servicio.nextMessageVistaAsig(true);
+                          this.Servicio.nextMessageIDAsig(this.idAsig); this.clear();
       },
-      (error:string)=> {console.log(error);} );
+      (error: string) => {console.log(error); } );
   }
 
-  clear(){
+  clear() {
     this.asunt = '';
     this.type = '';
-    this.body='';
+    this.body = '';
   }
 }

@@ -10,6 +10,9 @@ import { CentralComponent } from './central/central.component';
 import { VistaListaComponent } from './vista-lista/vista-lista.component';
 import { VistaAsignaturaComponent } from './vista-asignatura/vista-asignatura.component';
 import { CrearTemaComponent } from './crear-tema/crear-tema.component';
+import { ModificarTemaComponent } from './modificar-tema/modificar-tema.component';
+import { VerTemaComponent } from './ver-tema/ver-tema.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { CrearTemaComponent } from './crear-tema/crear-tema.component';
     VistaListaComponent,
     VistaAsignaturaComponent,
     CrearTemaComponent,
+    ModificarTemaComponent,
+    VerTemaComponent,
+    PerfilUsuarioComponent,
   ],
   imports: [
     BrowserModule,
