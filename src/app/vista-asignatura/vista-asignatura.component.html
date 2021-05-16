@@ -4,7 +4,7 @@ Servicio.nextMessageVistaAsig(false)">Inicio</button>
   <button type="button" class="menu2" (click)="Servicio.nextMessageVistaLista(true);
 Servicio.nextMessageVistaAsig(false)">{{curso}}</button>
   <button type="button" class="menu3">{{subject}}</button>
-  <button type="submit" class="perfil">Mi cuenta</button>
+  <button type="submit" class="perfil" (click)="Servicio.nextMessageVerPerfilUser(true);Servicio.nextMessageVistaAsig(false)">Mi cuenta</button>
   <br>
 <br>
 
@@ -24,14 +24,7 @@ Servicio.nextMessageVistaAsig(false)">{{curso}}</button>
       <select name="cursos" id="fechas" [(ngModel)]="fech" (change)="ordenFecha()">
         <option value="created">Recientes</option>
         <option value="updated">Actualizadas</option>
-      </select><br>
-      <!--<label class="answer"><b>Número respuestas</b></label>
-      <select name="cursos" id="res" [(ngModel)]="res">
-        <option value="prim">dudas</option>
-        <option value="seg">2</option>
-        <option value="ter">3</option>
-        <option value="cuar">4</option>
-      </select><br>--><br>
+      </select><br><br>
     </form>
   </div>
   <br>

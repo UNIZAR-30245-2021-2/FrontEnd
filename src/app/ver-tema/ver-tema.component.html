@@ -4,7 +4,7 @@ Servicio.nextMessageVistaAsig(false);Servicio.nextMessageVerTema(false)">Inicio<
   <button type="button" class="menu2" (click)="Servicio.nextMessageVistaLista(true);
 Servicio.nextMessageVistaAsig(false);Servicio.nextMessageVerTema(false)">{{curso}}</button>
   <button type="button" class="menu3" (click)="Servicio.nextMessageVistaAsig(true);Servicio.nextMessageIDAsig(idAsig);Servicio.nextMessageVerTema(false)">{{subject}}</button>
-  <button type="submit" class="perfil">Mi cuenta</button>
+  <button type="submit" class="perfil" (click)="Servicio.nextMessageVerPerfilUser(true); Servicio.nextMessageVerTema(false)">Mi cuenta</button>
   <br>
   <br>
   <div class="contenedor">

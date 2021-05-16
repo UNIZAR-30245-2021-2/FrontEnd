@@ -4,7 +4,7 @@ Servicio.nextMessageVistaAsig(false); Servicio.nextMesssageCrearTema(false);Serv
   <button type="button" class="menu2" (click)="Servicio.nextMessageVistaLista(true);
 Servicio.nextMessageVistaAsig(false);Servicio.nextMesssageCrearTema(false);Servicio.nextMessageVerModi(false)">{{curso}}</button>
   <button type="button" class="menu3" (click)="Servicio.nextMessageVistaAsig(true); Servicio.nextMesssageCrearTema(false);Servicio.nextMessageVerModi(false)">{{subject}}</button>
-  <button type="submit" class="perfil">Mi cuenta</button>
+  <button type="submit" class="perfil" (click)="Servicio.nextMessageVerPerfilUser(true); Servicio.nextMessageVerModi(false)">Mi cuenta</button>
   <br>
   <p class="title"><b>Modificar tema:</b></p>
   <br>

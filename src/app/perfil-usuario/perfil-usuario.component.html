@@ -6,7 +6,6 @@
   <br>
   <button type="button" class="b1" (click)="editP=false; perfil=true">Mi perfil</button>
   <button type="button" class="b2" (click)="perfil=false; editP=true">Editar perfil</button>
-  <button type="button" class="b3" (click)="perfil=false; editP=true">Temas y Respuestas</button>
   <br><br>
   <div *ngIf="perfil">
     <div class="rectangulo">
@@ -42,11 +41,6 @@
       </tr>
       <button type="button" class="save" *ngIf="comprobar()" (click)="guardar()">Guardar Cambios</button>
       <button  type="button" *ngIf="!comprobar()" disabled class="denegado">Guardar Cambios</button>
-    </div>
-  </div>
-  <div *ngIf="replies">
-    <div class="rectangulo">
-
     </div>
   </div>
 </div>
