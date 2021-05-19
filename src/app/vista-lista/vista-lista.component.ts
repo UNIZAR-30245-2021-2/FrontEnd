@@ -43,6 +43,7 @@ export class VistaListaComponent implements OnInit {
 
   transformar(cur) {
     const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
+    this.result = [];
     // tslint:disable-next-line:triple-equals
     if ( cur == 'Primer') {
       this.http.get(this.Servicio.URL_API + '/subjects/subject/' + 1, {headers} ).subscribe(
@@ -59,9 +60,8 @@ export class VistaListaComponent implements OnInit {
           this.result[4] = resp.posts[4].name; this.ides[4] = resp.posts[4].id;
            },
         (error: string) => {console.log(error); });
-    }
-    // tslint:disable-next-line:triple-equals
-    if ( cur == 'Segundo') {
+      // tslint:disable-next-line:triple-equals
+    } else if ( cur == 'Segundo') {
       this.http.get(this.Servicio.URL_API + '/subjects/subject/' + 2, {headers} ).subscribe(
         (resp: string) => {
           // @ts-ignore
@@ -76,9 +76,8 @@ export class VistaListaComponent implements OnInit {
           this.result[4] = resp.posts[4].name; this.ides[4] = resp.posts[4].id;
            },
         (error: string) => {console.log(error); });
-    }
-    // tslint:disable-next-line:triple-equals
-    if ( cur == 'Tercer') {
+      // tslint:disable-next-line:triple-equals
+    } else if ( cur == 'Tercer') {
       this.http.get(this.Servicio.URL_API + '/subjects/subject/' + 3, {headers} ).subscribe(
         (resp: string) => {
           // @ts-ignore
@@ -93,9 +92,7 @@ export class VistaListaComponent implements OnInit {
           this.result[4] = resp.posts[4].name; this.ides[4] = resp.posts[4].id;
            },
         (error: string) => {console.log(error); });
-    }
-    // tslint:disable-next-line:triple-equals
-    if ( cur == 'Cuarto') {
+    } else  {
       this.http.get(this.Servicio.URL_API + '/subjects/subject/' + 4, {headers} ).subscribe(
         (resp: string) => {
           // @ts-ignore
@@ -115,8 +112,8 @@ export class VistaListaComponent implements OnInit {
 
   eliminarAs(id) {
     const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
-    this.http.delete(this.Servicio.URL_API + '/subjects/subject/' + id, {headers} ).subscribe(
-      (resp: string) => { this.Servicio.nextMessageCentCurso(this.curso); },
+    this.http.delete(this.Servicio.URL_API + '/subjects/' + id, {headers} ).subscribe(
+      (resp: string) => { this.Servicio.nextMessageCentCurso(this.curso); this.Servicio.nextMessageVistaLista(true); },
       (error: string) => { console.log(error); });
   }
 

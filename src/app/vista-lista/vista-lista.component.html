@@ -6,13 +6,6 @@
   <br>
   <p class="tituloCurso">Asignaturas de {{curso}} Curso:</p>
   <br>
-  <div *ngIf="ad">
-    <p class="nuevo" (click)="anyadir=true">Nuevo</p>
-  </div>
-  <div class="newAs" *ngIf="anyadir">
-    <label class="text"><b>Nombre:</b></label><input type="text" placeholder="name" name="nom" required [(ngModel)]="nombre">
-    <button class="sig" (click)="crearAs(); anyadir=false">Añadir</button>
-  </div>
   <div *ngFor="let p of result; index as i" >
     <div class="contenedor">
       <img class="icon" src="../../assets/asignatura.png" alt="Asignatura"><p class="c" (click)="Servicio.nextMessageVistaAsig(true);Servicio.nextMessageVistaLista(false);
@@ -22,4 +15,5 @@
       </div>
     </div>
   </div>
+  <br><br>
 </div>

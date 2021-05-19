@@ -10,13 +10,13 @@ Servicio.nextMessageVistaAsig(false);Servicio.nextMessageVerTema(false)">{{curso
   <div class="contenedor">
     <p class="tit">{{titulo}}</p>
     <p class="mini">Publicado el {{fecha}} en {{curso}} año, {{subject}}</p>
-    <div *ngIf="cat== 'Duda' && (idCreador == idLog || ad) && !res">
+    <div *ngIf="cat== 'Duda' && (idCreador == idLog || ad) && !res && !(titulo.includes('RESUELTO'))">
       <input style="margin-left: 5%" type="checkbox" (click)="resolv()"> Resuelto
     </div>
     <br>
-    <textarea  required name="body" [(ngModel)]="body" rows="4" cols="50" id="commentBodyField"  style="margin-left: 5%; width: 632px; height: 113px;"></textarea>
+    <textarea  required name="body"  readonly="readonly" [(ngModel)]="body" rows="4" cols="50" id="commentBodyField"  style="margin-left: 5%; width: 632px; height: 113px;"></textarea>
     <br><br>
-    <div *ngIf="idCreador == idLog">
+    <div *ngIf="idCreador == idLog &&!(titulo.includes('RESUELTO'))">
       <p class="edit" (click)="Servicio.nextMessageVerModi(true); Servicio.nextMessageIdTema(idTema);Servicio.nextMessageVerTema(false);">Editar</p>
     </div>
     <div *ngIf=" idCreador == idLog || ad">
@@ -44,7 +44,7 @@ Servicio.nextMessageVistaAsig(false);Servicio.nextMessageVerTema(false)">{{curso
   <tr>
     <td width="100"  rowspan="4"> <img class="icon4" src="../../assets/user.png" alt="user"><p class="nom2">{{nomLog}}</p></td>
     <td width="300"><p class="añadir">Deja tu comentario:</p>
-      <textarea  required name="body" [(ngModel)]="comment" rows="4" cols="50" id="c"  style="margin-left: 20%; width: 632px; height: 113px;"></textarea>
+      <textarea  required name="body"  [(ngModel)]="comment" rows="4" cols="50" id="c"  style="margin-left: 20%; width: 632px; height: 113px;"></textarea>
       <button type="button" class="com" (click)="comentar()">Comentar</button></td>
   </tr>
   <br><br>

@@ -71,11 +71,6 @@
 
 }
 
-.nuevo{
-  font-size: 14px;
-  margin-left: 75%;
-  cursor: pointer;
-}
 
 .elim{
   font-size: 12px;
@@ -83,16 +78,6 @@
   cursor: pointer;
 }
 
-.newAs{
-  z-index: 2;
-  position: absolute;
-  top: 30%;
-  left: 30%;
-  width: 30%;
-  height: 10%;
-  background-color: mediumaquamarine;
-  font-family: Roboto, serif;
-}
 
 .text{
   margin-left: 2%;
