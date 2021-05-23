@@ -38,7 +38,7 @@ export class VistaAsignaturaComponent implements OnInit {
   }
 
 
-
+ /* Obtiene los datos de los post realizados en la asignatura seleccionada. */
   obtenerPosts() {
     if (this.id != null) {
        const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
@@ -73,6 +73,7 @@ export class VistaAsignaturaComponent implements OnInit {
     }
  }
 
+ /* Ordena los post por categoria seleccionada. */
  ordeCat() {
    const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
 
@@ -102,9 +103,9 @@ export class VistaAsignaturaComponent implements OnInit {
          this.ides = [];
        }
      }, (error: string) => {console.log(error); });
-   this.clear();
  }
 
+ /* Busca por titulo en los post exsistentes en la asignatura */
  buscarTitulo() {
    const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
 
@@ -134,9 +135,9 @@ export class VistaAsignaturaComponent implements OnInit {
          this.ides = [];
        }
      }, (error: string) => {console.log(error); });
-   this.clear();
  }
 
+ /* Ordena por fecha de actualizados o creados los posts de la asignatura. */
  ordenFecha() {
    const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
 
@@ -167,12 +168,11 @@ export class VistaAsignaturaComponent implements OnInit {
        }
      },
      (error: string) => {console.log(error); });
-   this.clear();
  }
 
  clear() {
-    this.tema = '';
-    this.cat = '';
-    this.fech = '';
+    this.tema = ' ';
+    this.cat = ' ';
+    this.fech = ' ';
  }
 }

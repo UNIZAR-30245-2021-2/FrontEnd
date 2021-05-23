@@ -35,7 +35,8 @@ export class ModificarTemaComponent implements OnInit {
     this.Servicio.sharedMessageIDAsig.subscribe( id => this.idAsig = id);
   }
 
-  datos(){
+  /* Función para recuperar los datos del tema a modificar. */
+  datos() {
     const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
     this.http.get(this.Servicio.URL_API + '/posts/' + this.idTema, {headers}).subscribe(
       (resp: string) => {
@@ -49,6 +50,7 @@ export class ModificarTemaComponent implements OnInit {
       (error: string) => { console.log(error); });
   }
 
+  /* Función que realiza la actualización del tema con los nuevos datos modificados */
   guardar() {
     const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
 
@@ -67,6 +69,7 @@ export class ModificarTemaComponent implements OnInit {
   }
 
 
+  /* Limpia los campos de texto y selección */
   clear() {
     this.asunt = '';
     this.type = '';

@@ -49,7 +49,7 @@ export class VerTemaComponent implements OnInit {
     this.Servicio.sharedMessageIdTema.subscribe( message => { this.idTema = message; this.datos(); this.respuestas(); });
     this.Servicio.sharedMessageToken.subscribe(messageToken => this.token = messageToken);
     this.Servicio.sharedMessageID.subscribe( message => this.idLog = message);
-    this.Servicio.sharedMessageAdmin.subscribe( message => { this.ad = message; console.log(this.ad); });
+    this.Servicio.sharedMessageAdmin.subscribe( message => this.ad = message);
     this.Servicio.sharedMessageObjAsig.subscribe( asignatura => this.subject = asignatura);
     this.Servicio.sharedMessageCentralCurso.subscribe( curso => this.curso = curso);
     this.Servicio.sharedMessageIDAsig.subscribe( message => this.idAsig = message);
@@ -58,7 +58,7 @@ export class VerTemaComponent implements OnInit {
   }
 
 
-
+  /* Obtiene los datos del tema a visualizar */
   datos() {
       const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
 
@@ -78,6 +78,7 @@ export class VerTemaComponent implements OnInit {
         (error: string) => {console.log(error); });
   }
 
+  /* Marca como resuelto un tema añadiendo la cadena en el titulo del tema. */
   resolv() {
     this.titulo = this.titulo.concat(' RESUELTO');
     this.res = true;
@@ -93,6 +94,7 @@ export class VerTemaComponent implements OnInit {
     (error: string) => { console.log(error); });
   }
 
+  /* Elimina el tema que se esta visualizando */
   eliminar() {
     const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
     this.http.delete(this.Servicio.URL_API + '/posts/' + this.idTema, {headers} ).subscribe(
@@ -101,6 +103,7 @@ export class VerTemaComponent implements OnInit {
       (error: string) => { console.log(error); });
   }
 
+  /* Obtiene los datos de las respuestas realizadas en el tema */
   respuestas() {
     const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
     this.http.get(this.Servicio.URL_API + '/replies/post/' + this.idTema, {headers} ).subscribe(
@@ -138,6 +141,7 @@ export class VerTemaComponent implements OnInit {
 
   }
 
+  /* Publica el nuevo comentario en el tema visualizado. */
   comentar() {
     const reply = {
     user_id : this.idLog,
@@ -154,6 +158,7 @@ export class VerTemaComponent implements OnInit {
 
   }
 
+  /* Elimina la respuesta seleccionada. */
   eliminarReply(id) {
     const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
     this.http.delete(this.Servicio.URL_API + '/replies/' + id,  {headers} ).subscribe(

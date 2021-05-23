@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ServicioComponentesService} from '../servicios/servicio-componentes.service';
-import {User} from '../app.component';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {stringify} from 'querystring';
-import {equal} from 'assert';
+
 
 @Component({
   selector: 'app-vista-lista',
@@ -41,6 +39,7 @@ export class VistaListaComponent implements OnInit {
 
   }
 
+  /* Obtiene las asignaturas del curso seleccionado. */
   transformar(cur) {
     const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
     this.result = [];
@@ -110,24 +109,12 @@ export class VistaListaComponent implements OnInit {
     }
   }
 
+  /* Elimina la asignatura seleccionada. */
   eliminarAs(id) {
     const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
     this.http.delete(this.Servicio.URL_API + '/subjects/' + id, {headers} ).subscribe(
       (resp: string) => { this.Servicio.nextMessageCentCurso(this.curso); this.Servicio.nextMessageVistaLista(true); },
       (error: string) => { console.log(error); });
   }
-
-  crearAs() {
-    const sub = {
-      name: this.nombre,
-      year: Number(this.curso),
-    };
-    const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
-    this.http.post(this.Servicio.URL_API + '/subjects/', JSON.stringify(sub), {headers} ).subscribe(
-      (resp: string) => { this.Servicio.nextMessageCentCurso(this.curso); },
-      (error: string) => { console.log(error); });
-    this.nombre = '';
-  }
-
 
 }

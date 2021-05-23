@@ -11,9 +11,9 @@ Servicio.nextMessageVistaAsig(false)">{{curso}}</button>
   <div class="rectangulo">
     <br>
     <form>
-      <label class="tem"><b>Título</b></label><input type="text" size="40" required name="tema" [(ngModel)]="tema"><img class="icon"(click)="buscarTitulo()" src="../../assets/lens.png" alt="Buscar">
+      <label class="tem"><b>Título</b></label><input type="text" size="40" required name="tema" [(ngModel)]="tema"><img class="icon"(click)="buscarTitulo(); this.cat='';this.fech=''; this.tema=''" src="../../assets/lens.png" alt="Buscar">
       <label class="category"><b>Categoría</b></label>
-      <select  name="cursos" id="cat" style="width:95px" [(ngModel)]="cat" (change)="ordeCat()">
+      <select  name="cursos" id="cat" style="width:95px" [(ngModel)]="cat" (change)="ordeCat(); this.fech=''">
         <option value="Duda">Duda</option>
         <option value="Apuntes">Apuntes</option>
         <option value="Búsqueda grupo/pareja prácticas">Búsqueda grupo/pareja prácticas</option>
@@ -21,7 +21,7 @@ Servicio.nextMessageVistaAsig(false)">{{curso}}</button>
         <option value="Otra">Otra</option>
       </select><br><br>
       <label class="date"><b>Fecha</b></label>
-      <select name="cursos" id="fechas" [(ngModel)]="fech" (change)="ordenFecha()">
+      <select name="cursos" id="fechas" [(ngModel)]="fech" (change)="ordenFecha(); this.cat=''">
         <option value="created">Recientes</option>
         <option value="updated">Actualizadas</option>
       </select><br><br>

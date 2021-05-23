@@ -34,6 +34,7 @@ export class PerfilUsuarioComponent implements OnInit {
 
   }
 
+  /* Recupera los datos del usuario logeado en el sistema */
   datosUser() {
     const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
 
@@ -51,6 +52,7 @@ export class PerfilUsuarioComponent implements OnInit {
       (error: string) => { console.log(error); });
   }
 
+  /* Actualiza los datos del usuario con los nuevos que se han modificado. */
   guardar() {
     const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
 
@@ -65,12 +67,16 @@ export class PerfilUsuarioComponent implements OnInit {
       (error: string) => { console.log(error); });
   }
 
+  /* Comprueba que el input del correo no esté vacío y que el correo contenga
+   * la cadena '@unizar.es' para verificar que sea un correo de la universidad.
+   */
   comprobar() {
     const  cOk = /\d+@unizar.es/.test(this.correo2);
     return (this.correo2 !== '' && cOk);
 
   }
 
+  /* Limpia los campos */
   clear() {
     this.correo2 = '';
     this.curso2 = '';

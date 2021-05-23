@@ -24,7 +24,6 @@ export class RegistroComponent implements OnInit {
   pass: string;
   pass2: string;
 
-  usuarioUnico: boolean;
 
   constructor(private http: HttpClient, public  Servicio: ServicioComponentesService) {
     this.alias = '';
@@ -39,11 +38,18 @@ export class RegistroComponent implements OnInit {
 
   }
 
+  /* Recibe del componente login el booleano para su activación.
+  * Si 'registro1' es true, la pantalla de registro se hace visible.
+  */
   receiveMessageChild($event) {
     this.registro1 = ($event);
   }
 
 
+  /* Registra el nuevo usuario con los datos introducidos en el sistema.
+   * Si el registro se ha realizado con exito, se vuelve a la pantalla de login.
+   * En caso de algun error, se permanece en la pantalla de registro.
+   */
  registrado() {
     this.registro1 = false;
 
@@ -64,7 +70,10 @@ export class RegistroComponent implements OnInit {
     this.resetCampos();
   }
 
-  /* Función para comprobar si los datos del formulario son adecuados */
+  /* Función para comprobar si los datos del formulario son correctos.
+  * Comprueba que el correo sea de la universidad.
+  * Que los campos no esten vacios y que las contraseñas coincidan. Además de que acepte las condiciones de uso.
+  */
    datosok() {
      const  cOk = /\d+@unizar.es/.test(this.correo);
      return (this.alias !== '' && (this.alias.length >= 4) && (this.alias.length <= 64) && this.correo !== '' && cOk
@@ -72,10 +81,12 @@ export class RegistroComponent implements OnInit {
             this.pass === this.pass2 &&  this.aceptadoT);
   }
 
+  /* Para checkbox de aceptar condiciones. */
   alternarAceptado() {
     if (this.aceptadoT) { this.aceptadoT = false; } else { this.aceptadoT = true; }
   }
 
+  /* Activa la pantalla de login para volver a ella en caso de cancelación del proceso de registro. */
   newToLogin() {
      this.Servicio.nextMessage2(this.login);
   }

@@ -1,6 +1,5 @@
 import {Component, Output, EventEmitter, OnInit, Input} from '@angular/core';
 import {HttpClient, HttpParams, HttpClientModule, HttpHeaders} from '@angular/common/http';
-import {User, UserRequest} from '../app.component';
 import {ServicioComponentesService} from '../servicios/servicio-componentes.service';
 import {stringify} from 'querystring';
 
@@ -19,9 +18,6 @@ export class LoginComponent implements OnInit {
   contrasena: string;
 
 
-  usuario: User = new User();
-
-
   @Output() messageEvent = new EventEmitter<boolean>();
 
   constructor(private http: HttpClient, public Servicio: ServicioComponentesService) {
@@ -35,11 +31,15 @@ export class LoginComponent implements OnInit {
     this.Servicio.sharedMessage2.subscribe(message2 => this.logeado = message2);
   }
 
+  /* Evento para pasar a la pantalla de Registro */
   sendMessageFather() {
     this.messageEvent.emit(this.registro);
   }
 
-
+  /* Si los datos introducidos son válidos, es decir existenen el sistema, logea al usuario en la página.
+   * En caso de que los datos introducidos no sean correctos o no existan en la base de datos del sistema,
+   * activa un mensaje de error en pantalla.
+   */
    comprobar() {
 
     const usuario = {
@@ -58,15 +58,18 @@ export class LoginComponent implements OnInit {
       (error: string) => {this.aviso = true; } );
   }
 
+  /* Limpia los campos de texto. */
   resetearCampos() {
     this.nomUsuario = '';
     this.contrasena = '';
   }
 
+  /* Función auxiliar para comprobar()
+  * Envia el id y nombre de usuario, y el token para su uso en otros componentes.
+  */
   json(resp) {
     this.Servicio.nextMessageID(resp.user.id);
     this.Servicio.nextMessageTok(resp.token);
     this.Servicio.nextMessageAdminMode(resp.user.admin);
-    console.log(resp.token);
   }
 }

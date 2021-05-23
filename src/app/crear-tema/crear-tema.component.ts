@@ -33,6 +33,7 @@ export class CrearTemaComponent implements OnInit {
     this.Servicio.sharedMessageIDAsig.subscribe( id => this.idAsig = id);
   }
 
+  /* Función que publica el nuevo tema con los datos introducidos en los campos.*/
   publicar() {
     const headers = new HttpHeaders({Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'});
 
@@ -52,6 +53,7 @@ export class CrearTemaComponent implements OnInit {
       (error: string) => {console.log(error); } );
   }
 
+  /* Limpia los campos de texto y de selección del formulario */
   clear() {
     this.asunt = '';
     this.type = '';
